@@ -6,6 +6,7 @@ test.describe('Input box practice', () => {
   let appendTextField: Locator;
   let presentTextField: Locator;
   let cleartextField: Locator;
+  let disabledField: Locator;
 
   test.beforeEach(async ({ page }) => {
     await page.goto('https://www.qaplayground.com/practice/input-fields');
@@ -13,7 +14,8 @@ test.describe('Input box practice', () => {
     movieName = page.getByTestId('input-movie-name');
     appendTextField = page.getByTestId('input-append-text');
     presentTextField = page.getByTestId('input-verify-text');
-    cleartextField = page.getByTestId('input-clear-test')
+    cleartextField = page.getByTestId('input-clear-text')
+    disabledField = page.getByTestId('input-disabled')
   });
 
   test.describe('Movie input field', () => {
@@ -55,12 +57,14 @@ test.describe('Input box practice', () => {
         await expect(presentTextField).toHaveValue(fieldValue)
     })
 
-    // test('verify input field text can be cleared successfully', async () => {
-    // const value = await cleartextField.inputValue();
-    // expect(value).toBe('QA PlayGround Clear Me');
-    // await cleartextField.fill('');
-    // await expect(cleartextField).toHaveValue('');
-// });
+    test('verify input field text can be cleared successfully', async () => {
+    await cleartextField.fill('');
+    await expect(cleartextField).toBeEmpty();
+});
+  test('verify disabled fields cannot be edited', async () => {
+    await expect(disabledField).toBeDisabled();
+    await expect(disabledField).toHaveValue('Enter');
+  })
 });
 
 
