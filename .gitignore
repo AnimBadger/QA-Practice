@@ -1,0 +1,78 @@
+# Node modules
+
+node_modules/
+
+# Playwright artifacts
+
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Logs
+
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+
+.env
+.env.*
+!.env.example
+
+# Build output
+
+dist/
+build/
+out/
+
+# TypeScript
+
+*.tsbuildinfo
+
+# Coverage reports
+
+coverage/
+.nyc_output/
+
+# IDEs & editors
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# Temporary files
+
+tmp/
+temp/
+
+# Package manager files (optional depending on your setup)
+
+# Uncomment if needed
+
+# package-lock.json
+
+# yarn.lock
+
+# pnpm-lock.yaml
+
+# Playwright traces & videos (optional, keep if debugging)
+
+trace.zip
+*.trace
+*.har
+*.mp4
+
+# Misc
+
+*.local
