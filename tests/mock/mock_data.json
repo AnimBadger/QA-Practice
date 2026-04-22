@@ -1,0 +1,12 @@
+{
+  "responseCode": 200,
+  "products": [
+    {
+      "id": "1",
+      "name": "Blue skirt",
+      "price": "Rs. 50",
+      "brand": "Dikini",
+      "category": { "usertype": "Women", "category": "Tops" }
+    }
+  ]
+}
