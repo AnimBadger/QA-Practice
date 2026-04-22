@@ -7,6 +7,7 @@ test.describe('Input box practice', () => {
   let presentTextField: Locator;
   let cleartextField: Locator;
   let disabledField: Locator;
+  let readonlyField: Locator;
 
   test.beforeEach(async ({ page }) => {
     await page.goto('https://www.qaplayground.com/practice/input-fields');
@@ -16,6 +17,7 @@ test.describe('Input box practice', () => {
     presentTextField = page.getByTestId('input-verify-text');
     cleartextField = page.getByTestId('input-clear-text')
     disabledField = page.getByTestId('input-disabled')
+    readonlyField = page.getByTestId('input-readonly')
   });
 
   test.describe('Movie input field', () => {
@@ -61,15 +63,22 @@ test.describe('Input box practice', () => {
     await cleartextField.fill('');
     await expect(cleartextField).toBeEmpty();
 });
-  test('verify disabled fields cannot be edited', async () => {
+  test('verify disabled fields cannot be edited by user', async () => {
     await expect(disabledField).toBeDisabled();
     await expect(disabledField).toHaveValue('Enter');
   })
+
+  test('verify is Enabled() returns false for disabled fields', async () => {
+    await expect(disabledField).toBeDisabled();
+  });
+
+  test('readonly field should not be editable', async () => {
+  await expect(readonlyField).toHaveAttribute('readonly', '');
+  await expect(readonlyField).toHaveValue('The text is readonly');
 });
 
-
-
-
+});
+  
 
 //   // 2. Boundary & Validation
 //   test('should respect max length attribute', async () => {
